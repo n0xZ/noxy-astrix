@@ -1,0 +1,18 @@
+---
+import { getProjects } from '../utils/projects'
+import {Image } from '@astrojs/image/components'
+type Project = {
+	name: string
+	href: string
+}
+---
+
+<article class=" min-h-screen h-full grid grid-rows-4 container mx-auto gap-5 w-full xl:p-0 p-2">
+	{
+		getProjects().map(({description,image,repository,title}) => (
+			<aside class=" w-full   p-4 rounded-lg border-l-4 border-rose-400 flex flex-row justify-between items-center ">
+				<Image format="webp" class="aspect-video rounded-lg " src={image.url} alt={description} width={image.width} height={image.height} />
+			</aside>
+		))
+	}
+</article>

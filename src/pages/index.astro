@@ -1,0 +1,115 @@
+---
+import ProjectList from '../components/project-list.astro'
+import { getContactIcons, getStackIcons } from '../utils/icons'
+const NavItems = [
+	{ href: '#about', children: 'About me' },
+	{ href: '#contact', children: 'Contact me' },
+	{ href: '#projects', children: 'Projects' },
+]
+---
+
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Gonzalo Molina</title>
+	</head>
+	<body class="c-neutral-600 font-inter">
+		<header class="p-5 fixed bg-white w-full">
+			<nav
+				class="flex flex-row items-center justify-between container mx-auto max-w-3xl font-roboto"
+			>
+				<h1 class="font-bold c-rose-400 text-xl" title="Gonzalo Molina - Portfolio">
+					<a href="#">GM</a>
+				</h1>
+				<ul class="flex flex-row hidden items-center space-x-6 text-md">
+					{
+						NavItems.map(({ children, href }) => (
+							<li class="hover:c-rose-400 duration-100 ease-in-out ">
+								<a href={href}>{children}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		</header>
+		<main class="h-screen text-center">
+			<section
+				class="h-full flex flex-col justify-center items-center space-y-3 container mx-auto max-w-3xl text-center"
+				id=""
+			>
+				<h2 class="xl:text-6xl xl:p-0 p-1 text-5xl">
+					Hey, I'm <span class="c-rose-400 font-bold">Gonzalo</span>
+				</h2>
+				<p class="text-lg c-neutral-400">Software developer</p>
+			</section>
+
+			<section
+				class="h-screen flex flex-col justify-center items-center space-y-4 container mx-auto max-w-3xl"
+				id="about"
+			>
+				<h2 class="text-center text-3xl c-rose-400" title="About me">About me</h2>
+				<article class="flex flex-col justify-center space-y-3">
+					<p>
+						I'm 20 years old and I'm a software developer based in Argentina. I've
+						been studying programming since I was at high school, and I'm a big fan of
+						it!
+					</p>
+					<p>My actual stack is based on these technologies:</p>
+
+					<aside class="grid grid-cols-4 space-y-3">
+						{
+							getStackIcons().map((icon) => (
+								<>
+									<div class={icon.iconClass} />
+									<p>{icon.name}</p>
+								</>
+							))
+						}
+					</aside>
+				</article>
+			</section>
+			<section
+				class="h-screen flex flex-col justify-center space-y-3 container mx-auto max-w-3xl"
+				id="contact"
+			>
+				<h2 class="text-center text-3xl c-rose-400">Contact me</h2>
+
+				<p class="mb-3">You can contact me by over these medias:</p>
+				<article class="flex flex-row items-center justify-center space-x-5">
+					{
+						getContactIcons().map((icon) => (
+							<a href={icon.href} title={icon.iconTitle}>
+								<div class={`${icon.iconClass} h-9 w-9 `} />
+							</a>
+						))
+					}
+				</article>
+			</section>
+
+			<section
+				class="h-screen flex flex-col justify-center items-center space-y-3 container mx-auto max-w-3xl"
+				id="projects"
+			>
+				<h4 class="text-center text-3xl c-rose-400" title="Projects">Projects</h4>
+				<ProjectList />
+			</section>
+			<footer class="p-5 bg-neutral-50">
+				<aside class="flex flex-row items-center justify-center space-x-5 mb-5">
+					{
+						getContactIcons().map((icon) => (
+							<a href={icon.href} title={icon.iconTitle}>
+								<div class={`${icon.iconClass} h-7 w-7 `} />
+							</a>
+						))
+					}
+				</aside>
+				<p class="text-center text-sm">
+					Powered by <a href="https://astro.build" class="c-orange-500">Astro 🧡</a>
+				</p>
+			</footer>
+		</main>
+	</body>
+</html>

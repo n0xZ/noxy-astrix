@@ -9,10 +9,12 @@ specifiers:
 
 dependencies:
   '@astrojs/image': 0.11.6
-  '@iconify-json/logos': 1.1.18
   '@unocss/reset': 0.46.5
   astro: 1.6.10
   unocss: 0.46.5
+
+devDependencies:
+  '@iconify-json/logos': 1.1.18
 
 packages:
 
@@ -430,11 +432,10 @@ packages:
     resolution: {integrity: sha512-Ra8BV3fJhE/5omYOY2UlDhgggyxxzMTppGH3n9EfFYh9Rpx4+HtE6zp7s+i3glYOqs2Me5HNcDEOkU63kcHqvg==}
     dependencies:
       '@iconify/types': 2.0.0
-    dev: false
+    dev: true
 
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: false
 
   /@iconify/utils/2.0.2:
     resolution: {integrity: sha512-13B3wJxDLmSNBEIEpKleKSkJVQgdAy9ra3Xsu233i/5qD5yXBGhpOFxTB/k8cqme0xVsMKBPV5vbvq9MgQlX+w==}

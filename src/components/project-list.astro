@@ -1,17 +1,34 @@
 ---
 import { getProjects } from '../utils/projects'
-import {Image } from '@astrojs/image/components'
-type Project = {
-	name: string
-	href: string
-}
+import { Image } from '@astrojs/image/components'
 ---
 
-<article class=" min-h-screen h-full grid grid-rows-4 container mx-auto gap-5 w-full xl:p-0 p-2">
+<article
+	class="min-h-screen h-full grid grid-rows-4 container mx-auto gap-7 w-full xl:p-0 p-2"
+>
 	{
-		getProjects().map(({description,image,repository,title}) => (
-			<aside class=" w-full   p-4 rounded-lg border-l-4 border-rose-400 flex flex-row justify-between items-center ">
-				<Image format="webp" class="aspect-video rounded-lg " src={image.url} alt={description} width={image.width} height={image.height} />
+		getProjects().map(({ description, image, repository, title, siteUrl }) => (
+			<aside class=" w-full   p-4 rounded-lg border-l-4 border-rose-400 flex flex-col justify-center space-y-5 ">
+				<Image
+					format="webp"
+					class="aspect-video rounded-lg "
+					src={image.url}
+					alt={description}
+					width={image.width}
+					height={image.height}
+				/>
+				<h4 class="text-center text-2xl mt-6 c-rose-400">{title}</h4>
+				<p>{description}</p>
+				<div class="flex flex-row justify-center items-center space-x-5">
+					<a href={repository} 	class="px-4 py-4 rounded-lg bg-rose-500 hover:bg-rose-700 duration-100 ease-in-out  c-neutral-50 w-40">View repository </a>
+					<a
+						href={siteUrl}
+						target="_blank"
+						class="px-4 py-4 rounded-lg bg-rose-500 hover:bg-rose-700 duration-100 ease-in-out  c-neutral-50 w-40"
+					>
+						View page
+					</a>
+				</div>
 			</aside>
 		))
 	}

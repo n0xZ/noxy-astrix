@@ -35,9 +35,9 @@ const NavItems = [
 				</ul>
 			</nav>
 		</header>
-		<main class="h-screen text-center">
+		<main class="min-h-screen h-full text-center">
 			<section
-				class="h-full flex flex-col justify-center items-center space-y-3 container mx-auto max-w-3xl text-center"
+				class="h-screen flex flex-col justify-center items-center space-y-3 container mx-auto max-w-3xl text-center"
 				id=""
 			>
 				<h2 class="xl:text-6xl xl:p-0 p-1 text-5xl">
@@ -90,13 +90,13 @@ const NavItems = [
 			</section>
 
 			<section
-				class="h-screen flex flex-col justify-center items-center space-y-3 container mx-auto max-w-3xl"
+				class="min-h-screen h-full flex flex-col justify-center items-center space-y-3 container mx-auto max-w-3xl"
 				id="projects"
 			>
 				<h4 class="text-center text-3xl c-rose-400" title="Projects">Projects</h4>
 				<ProjectList />
 			</section>
-			<footer class="p-5 bg-neutral-50">
+			<footer class="p-5 bg-neutral-50 mt-12">
 				<aside class="flex flex-row items-center justify-center space-x-5 mb-5">
 					{
 						getContactIcons().map((icon) => (

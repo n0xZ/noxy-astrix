@@ -5,7 +5,7 @@ export default defineConfig({
 		presetUno(),
 		presetWebFonts({
 			provider: 'google',
-			fonts: { roboto: 'Roboto', inter: 'Inter' },
+			fonts: { figtree: 'Figtree', inter: 'Inter' },
 		}),
 		presetIcons(),
 	],
